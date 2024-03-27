@@ -8,7 +8,7 @@ Below are the basic elements of this app, and a super basic explanation of how t
 This is our framework that will interface with the LLM. LangChain was chosen in this scenario in case I wasn't able to stick with a specific model, since it supports [a ton of LLMs]([url](https://python.langchain.com/docs/integrations/llms/)).
 
 ### TODO:
-[ ] Readme - Description of Frontend
-[ ] Readme - Description of API
-[ ] Readme - Description of the data source
-[ ] Actually build the app
+- [ ] Readme - Description of Frontend
+- [ ] Readme - Description of API
+- [ ] Readme - Description of the data source
+- [ ] Actually build the app
