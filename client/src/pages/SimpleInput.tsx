@@ -6,11 +6,14 @@ const SimpleInput: Component = () => {
     const body = JSON.stringify({
       content: userMessage(),
     });
-
-    return await fetch("http://localhost:8088/simple", {
-      method: "POST",
-      body,
-    }).json();
+    try {
+      return await fetch("http://localhost:8088/simple", {
+        method: "POST",
+        body,
+      });
+    } catch (error) {
+      return "Something went wrong, please ask again later."
+    }
   };
 
   const [userMessage, setUserMessage] = createSignal("");
@@ -36,7 +39,7 @@ const SimpleInput: Component = () => {
           </button>
         </div>
       </form>
-      {assistant()}
+      <article>{assistant()}</article>
     </main>
   );
 };
