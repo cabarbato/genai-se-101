@@ -1,16 +1,13 @@
 import type { Component } from "solid-js";
-import "purecss"
 import styles from "./App.module.css";
 
-const App: Component = () => {
-  return (
-    <div class={styles.App}>
-      <header class={styles.header}>Demo Chatbot</header>
-      <main>
-        <form class="pure-form"><input placeholder="Type your question here"></input></form>
-      </main>
-    </div>
-  );
-};
+const App: Component = (props) => (
+  <>
+    <header class="container is-max-desktop">
+      <h1 class={styles.header}>Gen AI Demo</h1>
+    </header>
+    {props.children}
+  </>
+);
 
 export default App;
