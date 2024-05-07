@@ -1,4 +1,8 @@
 import { Component, createSignal, createResource } from "solid-js";
+import config from "../environment";
+
+const ENV = "local",
+  CONFIG = config[ENV];
 
 const SimpleInput: Component = () => {
   const fetchResponse = async () => {
@@ -6,7 +10,7 @@ const SimpleInput: Component = () => {
       content: userMessage(),
     });
     try {
-      const response = await fetch("http://localhost:8088/simple", {
+      const response = await fetch(`${CONFIG.BASE_URL}/simple`, {
         method: "POST",
         body,
       });
@@ -34,7 +38,11 @@ const SimpleInput: Component = () => {
             value={userMessage()}
             onChange={(e) => setUserMessage(e.currentTarget.value)}
           ></input>
-          <button type="button" class="button is-primary" onClick={setAssistantMessage}>
+          <button
+            type="button"
+            class="button is-primary"
+            onClick={setAssistantMessage}
+          >
             Go
           </button>
         </div>
