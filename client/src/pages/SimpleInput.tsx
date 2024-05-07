@@ -28,7 +28,7 @@ const SimpleInput: Component = () => {
     <main class="container is-max-desktop">
       <form class="box">
         <label class="label" for="question">
-          Password
+          Simple Q&A Input
         </label>
         <div class="is-flex">
           <input
