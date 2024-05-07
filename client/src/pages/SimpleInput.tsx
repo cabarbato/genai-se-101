@@ -1,18 +1,18 @@
 import { Component, createSignal, createResource } from "solid-js";
 
 const SimpleInput: Component = () => {
-  const fetchResponse = async (e) => {
-    e.preventDefault();
+  const fetchResponse = async () => {
     const body = JSON.stringify({
       content: userMessage(),
     });
     try {
-      return await fetch("http://localhost:8088/simple", {
+      const response = await fetch("http://localhost:8088/simple", {
         method: "POST",
         body,
       });
+      return response.json();
     } catch (error) {
-      return "Something went wrong, please ask again later."
+      return "Something went wrong, please ask again later.";
     }
   };
 
@@ -34,12 +34,12 @@ const SimpleInput: Component = () => {
             value={userMessage()}
             onChange={(e) => setUserMessage(e.currentTarget.value)}
           ></input>
-          <button class="button is-primary" onClick={setAssistantMessage}>
+          <button type="button" class="button is-primary" onClick={setAssistantMessage}>
             Go
           </button>
         </div>
       </form>
-      <article>{assistant()}</article>
+      <article>{userMessage() && assistant()}</article>
     </main>
   );
 };
